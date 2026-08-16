@@ -1,0 +1,141 @@
+MealNest Project Notes
+=====================
+
+Project overview
+----------------
+MealNest is a local-first Streamlit app for family meal planning using CSV-based food lists. It includes baby and adult meal planning, cookbook-style recipe names, daily meal scheduling, and AI feedback with a graceful fallback when no external AI key is configured.
+
+Main features
+-------------
+- 4 tabs: Food Items, Baby Nutrition & Meal Prep, Adult Nutrition & Meal Prep, and AI Feedback Chat
+- CSV-driven datasets for baby and adult foods
+- Meal plan generation for 1-7 days and 1-5 meals per day
+- No repeated meals on the same day
+- Cookbook-style recipe names for generated meals
+- Local file persistence using CSV files and a feedback log
+- No database and no authentication required
+
+Food Items tab
+--------------
+- View default baby and adult food lists
+- Upload custom CSV files in the sidebar
+- Validate CSV structure before use
+
+Baby Nutrition & Meal Prep tab
+------------------------------
+- Select foods with allergen filters
+- Choose the number of days and meal types
+- Generate daily meal plans without repeating items on the same day
+- Show the food breakdown for each meal slot
+- Display polished recipe-style titles
+
+Adult Nutrition & Meal Prep tab
+------------------------------
+- Search and filter adult foods
+- Choose the number of days and meal types
+- Build meal plans with balanced combinations
+- Show per-day meal breakdowns and recipe names
+
+AI Feedback Chat tab
+--------------------
+- Submit feedback in plain language
+- Use Groq when configured
+- Fall back to local deterministic feedback when AI is unavailable
+- Log results to feedback.txt
+
+Technology stack
+----------------
+- Streamlit
+- Python
+- Pandas
+- NumPy
+- uv
+- Local CSV persistence
+
+Project structure
+-----------------
+MealPrepApp/
+├── app.py
+├── pyproject.toml
+├── uv.lock
+├── .env.example
+├── .gitignore
+├── README.md
+├── PROJECT_NOTES.txt
+├── feedback.txt
+├── data/
+│   ├── adult_food_items.csv
+│   └── baby_food_items_under_12_months.csv
+├── components/
+│   ├── __init__.py
+│   ├── food_items_tab.py
+│   ├── baby_nutrition_tab.py
+│   ├── adult_nutrition_tab.py
+│   └── ai_feedback_chat_tab.py
+├── utils/
+│   ├── __init__.py
+│   ├── csv_validation.py
+│   ├── meal_plan.py
+│   ├── session_data.py
+│   ├── llm_agent.py
+│   └── feedback_store.py
+└── __pycache__/
+
+Setup
+-----
+1. Install uv from: https://docs.astral.sh/uv/
+2. Install dependencies:
+   uv sync
+3. Run the app:
+   uv run streamlit run app.py
+
+Default app URL:
+http://localhost:8501
+
+CSV data format
+---------------
+Adult CSV example:
+food_item,allergen,measurable_quantity
+Chicken breast,none,150 g
+Salmon,fish,150 g
+Eggs,egg,2 large eggs
+
+Baby CSV example:
+food_id,food_item,texture_stage,safe_preparation,allergen
+BABY-001,Iron-fortified infant cereal,smooth puree,"Prepare thin with breast milk, formula, or water; serve by spoon.",no
+BABY-002,Sweet potato,smooth puree,"Steam until very soft, then mash or puree; no added salt.",no
+
+Validation rules
+----------------
+The app validates:
+- required columns
+- empty values
+- duplicate baby IDs
+- malformed rows
+- allergen normalization
+- blank or missing food names
+
+Notes
+-----
+- This project avoids a live USDA API dependency and works with local CSV data.
+- The AI tab uses Groq only when configured; otherwise it falls back to local logic.
+- Local CSV files and text logs are used for persistence; no external database is required.
+
+Disclaimer
+----------
+This app is for meal planning and nutrition-data viewing only, not individualized medical or feeding advice. Consult healthcare professionals for individual dietary concerns or allergy guidance.
+
+Troubleshooting
+---------------
+If Streamlit fails to start:
+- make sure dependencies are installed: uv sync
+- then run: uv run streamlit run app.py
+
+If CSV load errors appear:
+- confirm header names match the required fields
+- check for malformed commas or unquoted values in text fields
+- re-upload a valid CSV file
+
+If AI chat is not responding:
+- this is expected if no Groq key is configured
+- the app will still provide fallback feedback without crashing

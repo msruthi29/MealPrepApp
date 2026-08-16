@@ -1,0 +1,20 @@
+food_id,food_item,texture_stage,safe_preparation,allergen
+BABY-001,Iron-fortified infant cereal,smooth puree,"Prepare thin with breast milk, formula, or water; serve by spoon.",no
+BABY-002,Sweet potato,smooth puree,"Steam until very soft, then mash or puree; no added salt.",no
+BABY-003,Carrot,smooth puree,"Cook until very soft, then puree or mash; never serve raw hard pieces.",no
+BABY-004,Peas,smooth puree,Cook until soft and mash thoroughly; remove tough skins if needed.,no
+BABY-005,Lentils,smooth puree,Cook until very soft and puree or mash; no added salt.,no
+BABY-006,Avocado,smooth mash,Mash ripe avocado until smooth; thin if needed.,no
+BABY-007,Banana,smooth mash,Mash ripe banana until smooth; thin if needed.,no
+BABY-008,Pear,smooth puree,"Peel, cook until soft, then puree or mash.",no
+BABY-009,Chicken,smooth puree,"Cook fully, remove skin and bones, then finely puree with liquid.",no
+BABY-010,Cottage cheese,smooth mash,Serve plain pasteurized cottage cheese in small amounts; avoid high-salt versions.,milk
+BABY-011,Brown rice cakes,soft tiny pieces,Soften in warm water until easy to chew or mash; avoid whole crisp cakes.,gluten
+BABY-012,Kidney beans,smooth puree,Cook until very soft and puree completely; no added salt.,no
+BABY-013,Black beans,smooth puree,Cook until very soft and puree completely; no added salt.,no
+BABY-014,Edamame,soft mash,Steam or boil until very soft and mash well; remove skins if needed.,soy
+BABY-015,Cucumber,smooth puree,Peel and cook until soft before pureeing; serve only as a soft puree.,no
+BABY-016,Mushrooms,smooth puree,Cook fully until very soft; puree completely and avoid raw pieces.,no
+BABY-017,Turkey breast,smooth puree,"Cook fully, trim all skin and fat, then puree or finely shred.",no
+BABY-018,Shrimp,soft flakes,Cook fully and chop very finely or puree to avoid choking risk.,shellfish
+BABY-019,Pumpkin,smooth puree,Roast or steam until very soft and puree; no added salt or sugar.,no
